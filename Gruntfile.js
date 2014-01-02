@@ -16,8 +16,7 @@ module.exports = function( grunt ) {
     // js minifcation options
   
     uglify: { 
-        'lib/js/jquery.min.js': 'bower_components/jquery/jquery.js',
-        'lib/js/angular.min.js': 'bower_components/angular/angular.js',
+        'assets/js/jquery.min.js': 'bower_components/jquery/jquery.js'
      },
     
     // concat options
