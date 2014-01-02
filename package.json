@@ -1,0 +1,26 @@
+{
+  "name": "IPersona",
+  "version": "1.0.0",
+  "title": "IPersona - Sistema de leitura de RSS",
+  "homepage": "InstitutoDomJose.github.io/ipersona/",
+  "author": {
+    "name": "\"DevEdmo\"",
+    "url": "http://devedmo.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/InstitutoDomJose/ipersona.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "matchdep": "~0.3.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-compass": "~0.7.0",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-ftp-deploy": "~0.1.1",
+    "grunt-contrib-cssmin": "~0.7.0",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-sass": "~0.6.0"
+  }
+}
