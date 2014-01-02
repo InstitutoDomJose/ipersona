@@ -1,79 +1,53 @@
+
 module.exports = function( grunt ) {
+
+    // Load all tasks
+    require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
     // set task config
     grunt.initConfig({
 
+    // jshint options
+    jshint : {
+        all : ['assets/js/all.js']
+    },
+
     
     // js minifcation options
-   uglify: {
-
-        'bower_components/jquery/jquery.js': 'src/js/jquery.min.js',
-        'bower_components/angular/angular.js': 'src/js/angular.min.js'  
-
+  
+    uglify: {
+        'lib/js/jquery.min.js': 'bower_components/jquery/jquery.js',
+        'lib/js/angular.min.js': 'bower_components/angular/angular.js',
      },
-
-
-     // jshint options
-    jshint : {
-        all : ['src/js/all.js']
-    },
-
-
-    // css minifcation options
-    cssmin: {
-        task : {
-            options : {
-                report : 'gzip'
-            },
-            files : { 
-                'css/style.min.css': [ 'src/css/style.css' ] 
-            }
-        }
-    },
-
-
+    
     // concat options
     concat : {
         task: {
             src: [ 'bower_components/bootstrap/dist/css/bootstrap.css', 'build/css/style.css' ],
-            dest: 'src/css/all.css'
+            dest: 'assets/css/all.css',
+
+            src: ['lib/js/jquery.min.js', 'lib/js/jquery.min.js'],
+            dest: 'assets/js/all.js'
         }
-    },
-
-    
-
-    // sass options
-    sass : {
-        task : {
-          files: {
-               'css/desktop.css' : 'scss/desktop.scss',
-               'css/general.css' : 'scss/general.scss'
-          }
-        },
-    },
-
-    // watch options
-    watch : {
-      js : {
-        files : [ 'js/main.js' ],
-        tasks : [ 'jshint', 'uglify' ]
       },
-      sass : {
-        files : [ 'scss/*.scss' ],
-        tasks : [ 'sass', 'concat', 'cssmin' ]
-      }
-    }
-    });
-    
 
-    require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
+    // concat options
+    concat : {
+        task: {
+
+            src: ['lib/js/jquery.min.js', 'lib/js/jquery.min.js'],
+            dest: 'assets/js/all.js'
+        }
+      },
+    });
+
+    // Registrando task
+    grunt.registerTask( 'concat', [ 'concat' ] );
+    grunt.registerTask( 'uglify', [ 'uglify' ] );
+     
     
     // load plugins
-    grunt.loadNpmTasks( 'grunt-contrib-jshint' );
     grunt.loadNpmTasks( 'grunt-contrib-concat' );
     grunt.loadNpmTasks( 'grunt-contrib-uglify' );
-    grunt.loadNpmTasks( 'grunt-contrib-watch' );
-    grunt.loadNpmTasks( 'grunt-contrib-sass' );
-    grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
 
 }
