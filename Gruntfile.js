@@ -26,7 +26,7 @@ module.exports = function( grunt ) {
                 report : 'gzip'
             },
             files : { 
-                'css/style.min.css': [ '/src/css/style.css' ] 
+                'css/style.min.css': [ 'src/css/style.css' ] 
             }
         }
     },
